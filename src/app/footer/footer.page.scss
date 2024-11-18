@@ -3,23 +3,32 @@
     /* Fundo azul escuro */
     height: 60px;
     /* Altura fixa */
+    width: 100%;
+    /* Garante largura total */
     display: flex;
     align-items: center;
     justify-content: space-around;
+    position: fixed;
+    /* Fixa no rodapé */
+    bottom: 0;
+    /* Sempre na parte inferior */
+    z-index: 100;
+    /* Certifica-se de estar acima de outros elementos */
 
     ion-tab-button {
         display: flex;
         justify-content: center;
         align-items: center;
         flex: 1;
-        /* Espaço igual entre os botões */
+        /* Distribuição igual para todos os botões */
         color: #ffffff;
-        /* Cor do ícone padrão */
+        /* Cor do texto padrão */
         background-color: transparent;
         /* Fundo transparente */
         border: none;
-        /* Sem bordas */
+        /* Remove bordas */
         transition: background-color 0.3s ease, color 0.3s ease;
+        /* Animações suaves */
 
         ion-icon {
             font-size: 24px;
@@ -32,8 +41,8 @@
             background-color: #00509e;
             /* Fundo azul claro no hover */
             border-radius: 10px;
-
             /* Bordas arredondadas para destaque */
+
             ion-icon {
                 color: #b3cde0;
                 /* Ícone azul claro no hover */
@@ -42,10 +51,10 @@
 
         &.tab-selected {
             background-color: #00509e;
-            /* Fundo azul claro quando selecionado */
+            /* Fundo azul claro para o botão ativo */
             border-radius: 10px;
-
             /* Destaque para botão ativo */
+
             ion-icon {
                 color: #ffffff;
                 /* Ícone branco */
@@ -56,6 +65,19 @@
             ion-icon {
                 color: #8ca3b6;
                 /* Ícone desativado */
+            }
+        }
+    }
+
+    /* Estilos para telas maiores */
+    @media (min-width: 768px) {
+        height: 70px;
+        /* Aumenta um pouco a altura em telas maiores */
+
+        ion-tab-button {
+            ion-icon {
+                font-size: 28px;
+                /* Ícones maiores para telas maiores */
             }
         }
     }

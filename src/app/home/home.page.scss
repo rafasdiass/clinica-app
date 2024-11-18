@@ -33,14 +33,12 @@
   .quick-access-buttons {
     display: flex;
     justify-content: space-around;
-    padding: 15px;
-    background-color: #343a40;
-    /* Fundo para destacar os botões */
-    border-top: 1px solid #444;
+    padding: 60px;
+   
     /* Linha para separar do conteúdo */
     position: sticky;
-    bottom: 50px;
-    /* Toca o footer */
+    bottom: 0;
+    /* Alinhado diretamente ao footer */
     z-index: 50;
 
     button {
@@ -69,16 +67,16 @@
 
   /* Footer fixado no rodapé */
   .footer {
-    position: fixed;
+    position: sticky;
     bottom: 0;
     left: 0;
     width: 100%;
-    background-color: #212529;
-    color: #adb5bd;
+    
+   
     text-align: center;
     padding: 10px;
     font-size: 0.9rem;
-    border-top: 1px solid #444;
+   
   }
 
   /* Mobile-first ajustes */
