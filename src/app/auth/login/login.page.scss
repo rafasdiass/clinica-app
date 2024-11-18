@@ -1,0 +1,121 @@
+/* Variáveis */
+$primary-color: #0c76b0;
+/* Azul principal */
+$secondary-color: #47a5de;
+/* Azul mais claro */
+$contrast-color: #89c9f5;
+/* Azul ainda mais claro para maior contraste */
+$background-color: #d2d6db;
+$text-color: #04040c;
+$error-color: #ff4d4f;
+
+/* Importando Fonte Roboto */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+/* Página de Login */
+.login-page {
+    height: 100vh;
+    background-color: $background-color;
+    font-family: 'Roboto', sans-serif;
+
+    .header {
+        background-color: $primary-color;
+        color: #fff;
+
+        .header-icon {
+            font-size: 32px;
+        }
+
+        .header-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+    }
+
+    .login-container {
+        max-width: 450px;
+        margin: auto;
+
+        /* Input Fields */
+        .form-label {
+            color: $contrast-color;
+            font-weight: bold;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+
+            ion-icon {
+                font-size: 20px;
+                margin-right: 8px;
+                color: $contrast-color;
+            }
+        }
+
+        .form-control {
+            border: 1px solid $primary-color;
+            border-radius: 6px;
+            font-size: 16px;
+            padding: 10px;
+
+            &:focus {
+                border-color: $secondary-color;
+                box-shadow: 0 0 5px rgba($secondary-color, 0.5);
+            }
+        }
+
+        /* Botão de alternar visibilidade da senha */
+        .toggle-password {
+            border: 1px solid $primary-color;
+            background-color: #fff;
+            color: $primary-color;
+            border-radius: 0 6px 6px 0;
+
+            &:hover {
+                background-color: $secondary-color;
+                color: #fff;
+            }
+        }
+
+        /* Botão de Login */
+        .btn {
+            background-color: $primary-color;
+            color: #fff;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 6px;
+            padding: 10px;
+
+            &:hover {
+                background-color: darken($primary-color, 10%);
+            }
+        }
+
+        /* Links Auxiliares */
+        a {
+            text-decoration: none;
+            font-size: 14px;
+
+            &.text-primary {
+                color: $primary-color;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+
+            &.text-secondary {
+                color: $contrast-color;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+
+        /* Mensagem de Erro */
+        .text-danger {
+            font-size: 14px;
+            margin-top: 5px;
+        }
+    }
+}

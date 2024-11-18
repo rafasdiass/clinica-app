@@ -1,0 +1,62 @@
+.custom-tab-bar {
+    background-color: #003366;
+    /* Fundo azul escuro */
+    height: 60px;
+    /* Altura fixa */
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    ion-tab-button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex: 1;
+        /* Espaço igual entre os botões */
+        color: #ffffff;
+        /* Cor do ícone padrão */
+        background-color: transparent;
+        /* Fundo transparente */
+        border: none;
+        /* Sem bordas */
+        transition: background-color 0.3s ease, color 0.3s ease;
+
+        ion-icon {
+            font-size: 24px;
+            /* Tamanho do ícone */
+            color: #ffffff;
+            /* Cor padrão do ícone */
+        }
+
+        &:hover {
+            background-color: #00509e;
+            /* Fundo azul claro no hover */
+            border-radius: 10px;
+
+            /* Bordas arredondadas para destaque */
+            ion-icon {
+                color: #b3cde0;
+                /* Ícone azul claro no hover */
+            }
+        }
+
+        &.tab-selected {
+            background-color: #00509e;
+            /* Fundo azul claro quando selecionado */
+            border-radius: 10px;
+
+            /* Destaque para botão ativo */
+            ion-icon {
+                color: #ffffff;
+                /* Ícone branco */
+            }
+        }
+
+        &:not(.tab-selected) {
+            ion-icon {
+                color: #8ca3b6;
+                /* Ícone desativado */
+            }
+        }
+    }
+}

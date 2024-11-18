@@ -1,0 +1,19 @@
+<div class="appointment-card d-flex align-items-start p-3 rounded shadow-sm">
+  <!-- Foto do médico -->
+  <img [src]="photoUrl" alt="{{ doctorName }}" class="doctor-photo me-3 rounded-circle" />
+
+  <!-- Detalhes do agendamento -->
+  <div class="details flex-grow-1">
+    <h3 class="doctor-name mb-1">{{ doctorName }}</h3>
+    <p class="specialty text-muted mb-1">{{ specialty }}</p>
+    <p class="date text-muted mb-1">
+      <i class="bi bi-calendar3 me-1"></i>{{ date }}
+    </p>
+    <p class="location text-muted mb-1">
+      <i class="bi bi-geo-alt me-1"></i>{{ location }}
+    </p>
+    <p class="notes text-muted mb-0">
+      <strong>Notas:</strong> {{ notes }}
+    </p>
+  </div>
+</div>

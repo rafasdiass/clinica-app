@@ -1,0 +1,53 @@
+<ion-content class="login-page">
+  <!-- Cabeçalho -->
+  <div class="header bg-primary text-white text-center py-3">
+    <ion-icon name="log-in-outline" class="header-icon"></ion-icon>
+    <h1 class="header-title">Login</h1>
+  </div>
+
+  <!-- Container do Formulário -->
+  <div class="login-container container mt-4">
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
+      <!-- Email -->
+      <div class="mb-3">
+        <label for="email" class="form-label">
+          <ion-icon name="mail-outline"></ion-icon> Email
+        </label>
+        <input type="email" class="form-control" id="email" formControlName="email" placeholder="Digite seu email" />
+        <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched" class="text-danger">
+          Email inválido.
+        </div>
+      </div>
+
+      <!-- Senha -->
+      <div class="mb-3">
+        <label for="password" class="form-label">
+          <ion-icon name="lock-closed-outline"></ion-icon> Senha
+        </label>
+        <div class="input-group">
+          <input [type]="passwordVisible ? 'text' : 'password'" class="form-control" id="password"
+            formControlName="password" placeholder="Digite sua senha" />
+          <button type="button" class="btn btn-outline-secondary toggle-password" (click)="togglePasswordVisibility()">
+            <ion-icon [name]="passwordVisible ? 'eye-off-outline' : 'eye-outline'"></ion-icon>
+          </button>
+        </div>
+        <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched" class="text-danger">
+          A senha deve ter pelo menos 6 caracteres.
+        </div>
+      </div>
+
+      <!-- Botão de Login -->
+      <div class="d-grid mb-3">
+        <button class="btn btn-primary" type="submit" [disabled]="loginForm.invalid">
+          <ion-icon name="log-in-outline"></ion-icon> Entrar
+        </button>
+      </div>
+
+      <!-- Links Auxiliares -->
+      <div class="text-center">
+        <p>Não tem uma conta? <a class="text-primary" (click)="goToRegister()">Cadastre-se</a></p>
+        <p><a href="#" class="text-secondary">Esqueceu a senha?</a></p>
+      </div>
+    </form>
+  </div>
+</ion-content>

@@ -1,0 +1,149 @@
+.home-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  /* Garante que ocupa toda a altura da tela */
+  background-color: #f4f4f4;
+  /* Fundo neutro claro */
+
+  .content {
+    flex-grow: 1;
+    overflow-y: auto;
+    /* Permite rolagem no conteúdo principal */
+    padding: 16px;
+    /* Espaçamento interno */
+
+    /* Sessão de Próximos Agendamentos */
+    .appointments-section {
+      .section-title {
+        font-size: 1.25rem;
+        font-weight: bold;
+        color: #333333;
+        margin-bottom: 10px;
+      }
+
+      .appointment-card {
+        display: flex;
+        align-items: flex-start;
+        background-color: #ffffff;
+        /* Fundo branco */
+        border-radius: 8px;
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+        /* Sombra suave */
+        margin-bottom: 16px;
+        padding: 16px;
+
+        .doctor-photo {
+          width: 80px;
+          height: 80px;
+          border-radius: 50%;
+          object-fit: cover;
+          margin-right: 16px;
+        }
+
+        .details {
+          .doctor-name {
+            font-size: 1rem;
+            font-weight: bold;
+            color: #00509e;
+            /* Azul primário */
+            margin-bottom: 4px;
+          }
+
+          .specialty {
+            font-size: 0.875rem;
+            color: #666666;
+            margin-bottom: 8px;
+          }
+
+          .info {
+            font-size: 0.875rem;
+            color: #999999;
+          }
+        }
+      }
+    }
+
+    /* Sessão de Resultados de Exames */
+    .exams-section {
+      .section-title {
+        font-size: 1.25rem;
+        font-weight: bold;
+        color: #333333;
+        margin-bottom: 10px;
+      }
+
+      .exam-item {
+        display: flex;
+        align-items: center;
+        background-color: #ffffff;
+        border-radius: 8px;
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+        padding: 12px;
+        margin-bottom: 8px;
+
+        .exam-name {
+          font-size: 0.875rem;
+          color: #333333;
+        }
+
+        ion-button {
+          --padding-start: 0;
+          --padding-end: 0;
+
+          ion-icon {
+            font-size: 20px;
+          }
+        }
+      }
+    }
+
+    /* Botões de Acesso Rápido */
+    .quick-access-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 16px;
+
+      ion-button {
+        flex: 1;
+        margin: 0 4px;
+        border-radius: 8px;
+        font-size: 1rem;
+        font-weight: bold;
+
+        &.danger {
+          background-color: #e63946;
+          /* Vermelho */
+          color: #ffffff;
+        }
+
+        &.primary {
+          background-color: #00509e;
+          /* Azul primário */
+          color: #ffffff;
+        }
+
+        &.secondary {
+          background-color: #6c757d;
+          /* Cinza */
+          color: #ffffff;
+        }
+      }
+    }
+  }
+
+  /* Footer */
+  .footer {
+    flex-shrink: 0;
+    background-color: #003366;
+    /* Fundo azul escuro */
+    color: #ffffff;
+    /* Texto branco */
+    box-shadow: 0px -2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+
+    app-footer {
+      height: 70px;
+    }
+  }
+}

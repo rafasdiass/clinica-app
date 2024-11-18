@@ -1,0 +1,93 @@
+<ion-content class="register-page">
+  <!-- Cabeçalho -->
+  <div class="header bg-primary text-white text-center py-3">
+    <ion-icon name="person-add-outline" class="header-icon"></ion-icon>
+    <h1 class="header-title">Cadastro</h1>
+  </div>
+
+  <!-- Container do Formulário -->
+  <div class="register-container container mt-4">
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+      <!-- Nome Completo -->
+      <div class="mb-3">
+        <label for="fullName" class="form-label">
+          <ion-icon name="person-outline"></ion-icon> Nome Completo
+        </label>
+        <input type="text" class="form-control" id="fullName" formControlName="fullName"
+          placeholder="Digite seu nome" />
+        <div *ngIf="registerForm.get('fullName')?.invalid && registerForm.get('fullName')?.touched" class="text-danger">
+          Nome completo é obrigatório e deve ter pelo menos 3 caracteres.
+        </div>
+      </div>
+
+      <!-- CPF -->
+      <div class="mb-3">
+        <label for="cpf" class="form-label">
+          <ion-icon name="clipboard-outline"></ion-icon> CPF
+        </label>
+        <input type="text" class="form-control" id="cpf" formControlName="cpf" placeholder="Digite seu CPF" />
+        <div *ngIf="registerForm.get('cpf')?.invalid && registerForm.get('cpf')?.touched" class="text-danger">
+          CPF inválido.
+        </div>
+      </div>
+
+      <!-- Email -->
+      <div class="mb-3">
+        <label for="email" class="form-label">
+          <ion-icon name="mail-outline"></ion-icon> Email
+        </label>
+        <input type="email" class="form-control" id="email" formControlName="email" placeholder="Digite seu email" />
+        <div *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched" class="text-danger">
+          Email inválido.
+        </div>
+      </div>
+
+      <!-- Telefone -->
+      <div class="mb-3">
+        <label for="phone" class="form-label">
+          <ion-icon name="call-outline"></ion-icon> Telefone
+        </label>
+        <input type="text" class="form-control" id="phone" formControlName="phone" placeholder="Digite seu telefone" />
+        <div *ngIf="registerForm.get('phone')?.invalid && registerForm.get('phone')?.touched" class="text-danger">
+          Telefone inválido.
+        </div>
+      </div>
+
+      <!-- Senha -->
+      <div class="mb-3">
+        <label for="password" class="form-label">
+          <ion-icon name="lock-closed-outline"></ion-icon> Senha
+        </label>
+        <input type="password" class="form-control" id="password" formControlName="password"
+          placeholder="Digite sua senha" />
+        <div *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched" class="text-danger">
+          A senha deve ter pelo menos 6 caracteres.
+        </div>
+      </div>
+
+      <!-- Confirmar Senha -->
+      <div class="mb-3">
+        <label for="confirmPassword" class="form-label">
+          <ion-icon name="checkmark-circle-outline"></ion-icon> Confirme a Senha
+        </label>
+        <input type="password" class="form-control" id="confirmPassword" formControlName="confirmPassword"
+          placeholder="Confirme sua senha" />
+        <div *ngIf="registerForm.hasError('mismatch')" class="text-danger">
+          As senhas não coincidem.
+        </div>
+      </div>
+
+      <!-- Botão de Cadastro -->
+      <div class="d-grid mb-3">
+        <button class="btn btn-primary" type="submit" [disabled]="registerForm.invalid">
+          <ion-icon name="checkmark-done-outline"></ion-icon> Registrar
+        </button>
+      </div>
+
+      <!-- Link para Login -->
+      <div class="text-center">
+        <p>Já tem um cadastro? <a class="text-primary" (click)="goToLogin()">Faça login</a></p>
+      </div>
+    </form>
+  </div>
+</ion-content>

@@ -1,0 +1,29 @@
+<ion-content>
+  <div class="appointments-page">
+    <h1 class="text-center text-primary my-3">
+      <i class="bi bi-calendar3 me-2"></i>Meus Agendamentos
+    </h1>
+    <div class="appointments-list">
+      <!-- Loop pelos agendamentos -->
+      <div *ngFor="let appointment of appointments"
+        class="appointment-card d-flex align-items-start p-3 mb-3 rounded shadow-sm">
+        <!-- Foto do médico -->
+        <img [src]="appointment.photoUrl" alt="{{ appointment.doctorName }}" class="doctor-photo me-3 rounded-circle" />
+        <!-- Detalhes -->
+        <div class="details flex-grow-1">
+          <h3 class="doctor-name mb-1">{{ appointment.doctorName }}</h3>
+          <p class="specialty text-muted mb-1">{{ appointment.specialty }}</p>
+          <p class="date text-muted mb-1">
+            <i class="bi bi-calendar3 me-1"></i>{{ appointment.date }}
+          </p>
+          <p class="location text-muted mb-1">
+            <i class="bi bi-geo-alt me-1"></i>{{ appointment.location }}
+          </p>
+          <p class="notes text-muted mb-0">
+            <strong>Notas:</strong> {{ appointment.notes }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

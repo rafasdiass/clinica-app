@@ -1,0 +1,45 @@
+.header-container {
+    background-color: #003366;
+    /* Cor azul escuro */
+    border-bottom: 3px solid #00509e;
+    /* Linha decorativa */
+    color: white;
+
+    .logo {
+        display: flex;
+        align-items: center;
+
+        i.bi-eye {
+            font-size: 1.5rem;
+            /* Tamanho do ícone */
+            color: #ffffff;
+            /* Branco */
+        }
+
+        h1 {
+            font-size: 1.25rem;
+            /* Texto menor para mobile */
+            font-weight: bold;
+            margin: 0;
+        }
+    }
+
+    .welcome-text {
+        font-size: 0.875rem;
+        /* Texto menor para telas compactas */
+        font-style: italic;
+    }
+
+    /* Estilos para telas maiores */
+    @media (min-width: 768px) {
+        .logo h1 {
+            font-size: 1.5rem;
+            /* Texto maior para tablets e desktops */
+        }
+
+        .welcome-text {
+            font-size: 1rem;
+            /* Ajuste do subtítulo */
+        }
+    }
+}

@@ -1,0 +1,26 @@
+<ion-tab-bar slot="bottom" class="custom-tab-bar">
+  <!-- Página Inicial -->
+  <ion-tab-button tab="home" (click)="navigateTo('home')" class="tab-button">
+    <ion-icon name="home-outline"></ion-icon>
+  </ion-tab-button>
+
+  <!-- Agenda -->
+  <ion-tab-button tab="appointments" (click)="navigateTo('appointments')" class="tab-button">
+    <ion-icon name="calendar-outline"></ion-icon>
+  </ion-tab-button>
+
+  <!-- Login (Para testes) -->
+  <ion-tab-button tab="login" (click)="navigateTo('login')" class="tab-button">
+    <ion-icon name="log-in-outline"></ion-icon>
+  </ion-tab-button>
+
+  <!-- Perfil -->
+  <ion-tab-button tab="profile" (click)="navigateTo('register')" class="tab-button">
+    <ion-icon name="person-outline"></ion-icon>
+  </ion-tab-button>
+
+  <!-- Configurações -->
+  <ion-tab-button tab="settings" (click)="navigateTo('settings')" class="tab-button">
+    <ion-icon name="settings-outline"></ion-icon>
+  </ion-tab-button>
+</ion-tab-bar>

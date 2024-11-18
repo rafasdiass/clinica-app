@@ -1,0 +1,71 @@
+<div class="home-page d-flex flex-column">
+  <!-- Header -->
+  <app-header></app-header>
+
+  <!-- Conteúdo Principal -->
+  <div class="content flex-grow-1">
+    <!-- Próximos Agendamentos -->
+    <div class="appointments-section my-3">
+      <h2 class="section-title">Próximos Agendamentos</h2>
+      <div class="appointment-card">
+        <img src="assets/imgs/doctor-ana.jpg" alt="Dra. Ana Silva" class="doctor-photo" />
+        <div class="details">
+          <h3 class="doctor-name">Dra. Ana Silva</h3>
+          <p class="specialty">Oftalmologista</p>
+          <p class="info">Data: 25/11/2023 - 10:00 AM</p>
+          <p class="info">Local: Sala 203, Clínica Central</p>
+          <p class="info">Notas: Traga exames anteriores</p>
+        </div>
+      </div>
+      <div class="appointment-card">
+        <img src="assets/imgs/doctor-julia.jpg" alt="Dra. Júlia" class="doctor-photo" />
+        <div class="details">
+          <h3 class="doctor-name">Dra. Júlia</h3>
+          <p class="specialty">Cirurgião</p>
+          <p class="info">Data: 30/11/2023 - 14:00</p>
+          <p class="info">Local: Sala 405, Clínica Sul</p>
+          <p class="info">Notas: Jejum de 8 horas necessário</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Resultados de Exames -->
+    <div class="exams-section my-3">
+      <h2 class="section-title">Resultados de Exames</h2>
+      <div class="exam-item d-flex align-items-center">
+        <span class="exam-name flex-grow-1">Biometria Ultrassônica - 20/11/2023</span>
+        <ion-button fill="clear" color="primary" size="small">
+          <ion-icon name="search-outline"></ion-icon>
+        </ion-button>
+      </div>
+      <div class="exam-item d-flex align-items-center">
+        <span class="exam-name flex-grow-1">Biometria Óptica - 18/11/2023</span>
+        <ion-button fill="clear" color="primary" size="small">
+          <ion-icon name="search-outline"></ion-icon>
+        </ion-button>
+      </div>
+      <div class="exam-item d-flex align-items-center">
+        <span class="exam-name flex-grow-1">Campo Visual Computadorizado - 15/11/2023</span>
+        <ion-button fill="clear" color="primary" size="small">
+          <ion-icon name="search-outline"></ion-icon>
+        </ion-button>
+      </div>
+    </div>
+
+    <!-- Acesso Rápido -->
+    <div class="quick-access-buttons">
+      <ion-button size="large" color="danger" class="d-flex align-items-center gap-2">
+        Agendar Consulta
+      </ion-button>
+      <ion-button size="large" color="primary" class="d-flex align-items-center gap-2">
+        Ver Exames
+      </ion-button>
+      <ion-button size="large" color="secondary" class="d-flex align-items-center gap-2">
+        Atualizar Dados
+      </ion-button>
+    </div>
+  </div>
+<div class="footer"> 
+<app-footer></app-footer>
+</div>
+</div>

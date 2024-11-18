@@ -1,0 +1,37 @@
+.appointment-card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+    .doctor-photo {
+        width: 60px;
+        height: 60px;
+        object-fit: cover;
+        border: 2px solid #00509e;
+        /* Azul */
+    }
+
+    .details {
+        .doctor-name {
+            font-size: 1rem;
+            font-weight: bold;
+            color: #003366;
+            /* Azul escuro */
+        }
+
+        .specialty,
+        .date,
+        .location,
+        .notes {
+            font-size: 0.875rem;
+            color: #555555;
+            /* Cinza claro */
+        }
+
+        i {
+            color: #00509e;
+            /* Azul */
+            margin-right: 5px;
+        }
+    }
+}

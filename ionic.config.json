@@ -1,0 +1,7 @@
+{
+  "name": "app-clinica",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
