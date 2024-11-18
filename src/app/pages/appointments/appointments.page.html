@@ -1,37 +1,32 @@
-<ion-content>
-  <div class="appointments-page">
-    <h1 class="text-center text-primary my-3">
-      <i class="bi bi-calendar3 me-2"></i>Meus Agendamentos
-    </h1>
-    <div *ngIf="appointments.length > 0" class="appointments-list">
-      <!-- Loop pelos agendamentos -->
-      <div *ngFor="let appointment of appointments"
-        class="appointment-card d-flex align-items-start p-3 mb-3 rounded shadow-sm">
+<div class="container py-4 appointments-page">
+  <h1 class="text-center text-primary mb-4">
+    <i class="bi bi-calendar3 me-2"></i>Meus Agendamentos
+  </h1>
+
+  <div *ngIf="appointments.length > 0" class="appointments-list">
+    <!-- Loop pelos agendamentos -->
+    <div *ngFor="let appointment of appointments" class="card mb-3 shadow-sm">
+      <div class="card-body d-flex align-items-start">
         <!-- Foto do médico -->
-        <img [src]="appointment.photoUrl" alt="{{ appointment.doctorName }}" class="doctor-photo me-3 rounded-circle" />
+        <img [src]="appointment.photoUrl" alt="{{ appointment.doctorName }}" class="rounded-circle me-3"
+          style="width: 60px; height: 60px;" />
         <!-- Detalhes -->
         <div class="details flex-grow-1">
-          <h3 class="doctor-name mb-1">{{ appointment.doctorName }}</h3>
-          <p class="specialty text-muted mb-1">{{ appointment.specialty }}</p>
-          <p class="date text-muted mb-1">
-            <i class="bi bi-calendar3 me-1"></i>{{ appointment.date }}
-          </p>
-          <p class="location text-muted mb-1">
-            <i class="bi bi-geo-alt me-1"></i>{{ appointment.location }}
-          </p>
-          <p class="notes text-muted mb-0">
-            <strong>Notas:</strong> {{ appointment.notes }}
-          </p>
+          <h5 class="card-title mb-1">{{ appointment.doctorName }}</h5>
+          <p class="card-text text-muted mb-1"><i class="bi bi-briefcase me-1"></i>{{ appointment.specialty }}</p>
+          <p class="card-text text-muted mb-1"><i class="bi bi-calendar3 me-1"></i>{{ appointment.date }}</p>
+          <p class="card-text text-muted mb-1"><i class="bi bi-geo-alt me-1"></i>{{ appointment.location }}</p>
+          <p class="card-text text-muted mb-0"><strong>Notas:</strong> {{ appointment.notes }}</p>
         </div>
       </div>
     </div>
-
-    <!-- Mensagem para usuários sem agendamentos -->
-    <div *ngIf="appointments.length === 0" class="no-appointments text-center my-5">
-      <i class="bi bi-calendar-x text-muted" style="font-size: 4rem;"></i>
-      <p class="mt-3 text-muted">
-        Você ainda não tem nenhum agendamento. Vamos marcar uma consulta!
-      </p>
-    </div>
   </div>
-</ion-content>
+
+  <!-- Mensagem para usuários sem agendamentos -->
+  <div *ngIf="appointments.length === 0" class="no-appointments text-center py-5">
+    <i class="bi bi-calendar-x"></i>
+    <p class="mt-3">
+      Você ainda não tem nenhum agendamento. Vamos marcar uma consulta!
+    </p>
+  </div>
+</div>

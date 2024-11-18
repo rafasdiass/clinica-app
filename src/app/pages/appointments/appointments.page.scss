@@ -1,51 +1,85 @@
 .appointments-page {
-    padding: 10px 15px;
+    /* Centralizar conteúdo */
+    max-width: 720px;
+    margin: auto;
+    font-family: 'Roboto', sans-serif;
 
+    /* Título */
     h1 {
         font-size: 1.5rem;
         font-weight: bold;
     }
 
+    /* Lista de agendamentos */
     .appointments-list {
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
+        .card {
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+
+            .card-body {
+                display: flex;
+                align-items: flex-start;
+
+                img {
+                    object-fit: cover;
+                    border: 1px solid #dee2e6;
+                }
+
+                .details {
+                    h5 {
+                        font-size: 1.125rem;
+                        font-weight: 600;
+                    }
+
+                    p {
+                        font-size: 0.875rem;
+                    }
+                }
+            }
+        }
     }
 
-    .appointment-card {
-        background-color: white;
-        border-radius: 10px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* Estilo para "sem agendamentos" */
+    .no-appointments {
+        background-color: #f8f9fa;
+        border: 1px solid #e3e6ea;
+        border-radius: 8px;
+        padding: 20px;
 
-        .doctor-photo {
-            width: 60px;
-            height: 60px;
-            object-fit: cover;
-            border: 2px solid #00509e;
-            /* Azul */
+        i {
+            font-size: 3.5rem;
+            color: #007bff;
+            /* Azul bem claro */
         }
 
-        .details {
-            .doctor-name {
-                font-size: 1rem;
-                font-weight: bold;
-                color: #003366;
-                /* Azul escuro */
-            }
+        p {
+            margin-top: 1rem;
+            color: #007bff;
+            /* Azul bem claro */
+            font-size: 1.25rem;
+            font-weight: bold;
+        }
+    }
 
-            .specialty,
-            .date,
-            .location,
-            .notes {
-                font-size: 0.875rem;
-                color: #555555;
-                /* Cinza claro */
-            }
+    /* Responsividade */
+    @media (min-width: 768px) {
+        h1 {
+            font-size: 2rem;
+        }
+
+        .appointments-list .card .details h5 {
+            font-size: 1.25rem;
+        }
+
+        .no-appointments {
+            padding: 30px;
 
             i {
-                color: #00509e;
-                /* Azul */
-                margin-right: 5px;
+                font-size: 4rem;
+            }
+
+            p {
+                font-size: 1.5rem;
             }
         }
     }
