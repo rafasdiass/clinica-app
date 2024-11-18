@@ -12,14 +12,14 @@ export class AppointmentService {
   constructor(private api: ApiService) {}
 
   /**
-   * Obtém a lista de consultas.
+   * Obtém a lista de agendamentos do backend.
    */
   getAppointments(): Observable<Appointment[]> {
     return this.api.get<Appointment[]>(this.appointmentsEndpoint);
   }
 
   /**
-   * Obtém detalhes de uma consulta pelo ID.
+   * Obtém detalhes de um agendamento pelo ID.
    */
   getAppointmentById(appointmentId: string): Observable<Appointment> {
     return this.api.get<Appointment>(
@@ -28,14 +28,14 @@ export class AppointmentService {
   }
 
   /**
-   * Adiciona uma nova consulta.
+   * Adiciona um novo agendamento.
    */
   addAppointment(appointment: Partial<Appointment>): Observable<Appointment> {
     return this.api.post<Appointment>(this.appointmentsEndpoint, appointment);
   }
 
   /**
-   * Remove uma consulta pelo ID.
+   * Remove um agendamento pelo ID.
    */
   deleteAppointment(appointmentId: string): Observable<void> {
     return this.api.delete<void>(

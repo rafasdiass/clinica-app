@@ -3,7 +3,7 @@
     <h1 class="text-center text-primary my-3">
       <i class="bi bi-calendar3 me-2"></i>Meus Agendamentos
     </h1>
-    <div class="appointments-list">
+    <div *ngIf="appointments.length > 0" class="appointments-list">
       <!-- Loop pelos agendamentos -->
       <div *ngFor="let appointment of appointments"
         class="appointment-card d-flex align-items-start p-3 mb-3 rounded shadow-sm">
@@ -24,6 +24,14 @@
           </p>
         </div>
       </div>
+    </div>
+
+    <!-- Mensagem para usuários sem agendamentos -->
+    <div *ngIf="appointments.length === 0" class="no-appointments text-center my-5">
+      <i class="bi bi-calendar-x text-muted" style="font-size: 4rem;"></i>
+      <p class="mt-3 text-muted">
+        Você ainda não tem nenhum agendamento. Vamos marcar uma consulta!
+      </p>
     </div>
   </div>
 </ion-content>

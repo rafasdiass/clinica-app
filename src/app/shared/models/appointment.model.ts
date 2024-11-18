@@ -1,11 +1,8 @@
 export interface Appointment {
-  id: string;
-  fullName: string;
-  birthDate: string;
-  cpf: string;
-  phone: string;
-  email: string;
-  appointmentType: 'Clínico' | 'DETRAN';
-  date: string;
-  time: string;
+  doctorName: string;
+  specialty: string;
+  date: string; // Pode ser ajustado para `Date` se necessário
+  location: string;
+  notes: string;
+  photoUrl: string;
 }
