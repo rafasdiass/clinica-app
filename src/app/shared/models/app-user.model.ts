@@ -1,12 +1,10 @@
 export interface UserData {
-  uid?: string; // Definido pelo backend
-  name: string;
+  fullName: string;
+  cpf: string;
   email: string;
+  phone: string;
   password: string;
-  role?: 'admin' | 'doctor' | 'patient' | 'employee'; // Backend define
-  phoneNumber?: string;
-  cpf: string; // Adicionado para suportar CPF
-  address?: string;
-  createdAt?: Date;
-  updatedAt?: Date;
+  confirmPassword?: string; // Apenas no frontend
+  isActive?: boolean;
+  role?: string; // Padrão 'patient'
 }

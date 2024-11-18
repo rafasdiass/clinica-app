@@ -15,7 +15,10 @@
         </label>
         <input type="text" class="form-control" id="fullName" formControlName="fullName"
           placeholder="Digite seu nome" />
-        <div *ngIf="registerForm.get('fullName')?.invalid && registerForm.get('fullName')?.touched" class="text-danger">
+        <div *ngIf="
+            registerForm.get('fullName')?.invalid &&
+            registerForm.get('fullName')?.touched
+          " class="text-danger">
           Nome completo é obrigatório e deve ter pelo menos 3 caracteres.
         </div>
       </div>
@@ -26,7 +29,10 @@
           <ion-icon name="clipboard-outline"></ion-icon> CPF
         </label>
         <input type="text" class="form-control" id="cpf" formControlName="cpf" placeholder="Digite seu CPF" />
-        <div *ngIf="registerForm.get('cpf')?.invalid && registerForm.get('cpf')?.touched" class="text-danger">
+        <div *ngIf="
+            registerForm.get('cpf')?.invalid &&
+            registerForm.get('cpf')?.touched
+          " class="text-danger">
           CPF inválido.
         </div>
       </div>
@@ -37,7 +43,10 @@
           <ion-icon name="mail-outline"></ion-icon> Email
         </label>
         <input type="email" class="form-control" id="email" formControlName="email" placeholder="Digite seu email" />
-        <div *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched" class="text-danger">
+        <div *ngIf="
+            registerForm.get('email')?.invalid &&
+            registerForm.get('email')?.touched
+          " class="text-danger">
           Email inválido.
         </div>
       </div>
@@ -48,7 +57,10 @@
           <ion-icon name="call-outline"></ion-icon> Telefone
         </label>
         <input type="text" class="form-control" id="phone" formControlName="phone" placeholder="Digite seu telefone" />
-        <div *ngIf="registerForm.get('phone')?.invalid && registerForm.get('phone')?.touched" class="text-danger">
+        <div *ngIf="
+            registerForm.get('phone')?.invalid &&
+            registerForm.get('phone')?.touched
+          " class="text-danger">
           Telefone inválido.
         </div>
       </div>
@@ -60,7 +72,10 @@
         </label>
         <input type="password" class="form-control" id="password" formControlName="password"
           placeholder="Digite sua senha" />
-        <div *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched" class="text-danger">
+        <div *ngIf="
+            registerForm.get('password')?.invalid &&
+            registerForm.get('password')?.touched
+          " class="text-danger">
           A senha deve ter pelo menos 6 caracteres.
         </div>
       </div>
@@ -68,7 +83,8 @@
       <!-- Confirmar Senha -->
       <div class="mb-3">
         <label for="confirmPassword" class="form-label">
-          <ion-icon name="checkmark-circle-outline"></ion-icon> Confirme a Senha
+          <ion-icon name="checkmark-circle-outline"></ion-icon> Confirme a
+          Senha
         </label>
         <input type="password" class="form-control" id="confirmPassword" formControlName="confirmPassword"
           placeholder="Confirme sua senha" />
@@ -86,7 +102,10 @@
 
       <!-- Link para Login -->
       <div class="text-center">
-        <p>Já tem um cadastro? <a class="text-primary" (click)="goToLogin()">Faça login</a></p>
+        <p>
+          Já tem um cadastro?
+          <a class="text-primary" (click)="goToLogin()">Faça login</a>
+        </p>
       </div>
     </form>
   </div>
