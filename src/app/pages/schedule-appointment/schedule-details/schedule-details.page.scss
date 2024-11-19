@@ -1,37 +1,46 @@
-.appointment-type-container {
-    text-align: center;
+.schedule-details-container {
+    font-family: 'Roboto', sans-serif;
 
     h2 {
-        font-size: 1.2rem;
-        color: #48505c;
+        color: #0c76b0;
+        font-size: 1.25rem;
+        font-weight: bold;
+        text-align: center;
         margin-bottom: 1rem;
     }
 
-    .appointment-type-buttons {
+    .loading {
+        text-align: center;
+        color: #626668;
+        font-size: 1rem;
+        margin: 1rem 0;
+    }
+
+    .d-flex {
         display: flex;
-        gap: 1rem;
+        flex-wrap: wrap;
         justify-content: center;
+        gap: 0.5rem;
+        margin-top: 1rem;
 
         ion-button {
-            border-radius: 4px;
+            font-size: 0.9rem;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
 
-            &.active {
-                background-color: #47a5de;
+            &.ion-color-primary {
+                background-color: #0c76b0;
                 color: white;
+
+                &:hover {
+                    background-color: #084d79;
+                }
             }
         }
     }
 
-    .booking-method {
-        margin-top: 1rem;
-
-        label {
-            font-weight: bold;
-            color: #212e3e;
-        }
-
-        ion-select {
-            width: 100%;
-        }
+    .text-center {
+        text-align: center;
+        color: #626668;
     }
 }

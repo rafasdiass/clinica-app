@@ -1,5 +1,5 @@
 <div class="select-appointment-container ion-padding">
-  <h2>Selecione o Tipo de Atendimento</h2>
+  <h2 class="text-primary text-center">Selecione o Tipo de Atendimento</h2>
 
   <!-- Tipos de Atendimento -->
   <div *ngIf="loadingTypes" class="loading">Carregando tipos de atendimento...</div>
@@ -11,7 +11,7 @@
   </ion-list>
 
   <!-- Médicos Disponíveis -->
-  <h2 class="section-title">Escolha o Médico</h2>
+  <h2 class="text-primary text-center mt-4">Escolha o Médico</h2>
   <div *ngIf="loadingDoctors" class="loading">Carregando médicos...</div>
   <ion-list *ngIf="!loadingDoctors">
     <ion-item *ngFor="let doctor of doctors" button (click)="selectDoctor(doctor.name)">
@@ -23,12 +23,12 @@
   </ion-list>
 
   <!-- Datas Disponíveis -->
-  <h2 class="section-title">Escolha a Data</h2>
-  <ion-grid>
-    <ion-row>
-      <ion-col size="4" *ngFor="let date of availableDates" (click)="selectDate(date)" class="date-box">
-        {{ date }}
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+  <h2 class="text-primary text-center mt-4">Escolha a Data</h2>
+  <div class="calendar-container">
+    <ion-datetime [value]="selectedDate" (ionChange)="onDateChange($event)" presentation="date" class="custom-calendar">
+    </ion-datetime>
+    <div *ngIf="!isDateValid" class="error-message">
+      Data indisponível. Escolha outra data.
+    </div>
+  </div>
 </div>

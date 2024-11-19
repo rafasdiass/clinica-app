@@ -1,13 +1,13 @@
 <div class="schedule-details-container ion-padding">
-  <h2>Horários Disponíveis</h2>
+  <h2 class="text-primary text-center">Horários Disponíveis</h2>
 
-  <div *ngIf="loadingTimes" class="loading">Carregando horários...</div>
+  <div *ngIf="loadingTimes" class="loading text-center">Carregando horários...</div>
 
-  <div *ngIf="!loadingTimes && availableTimes.length === 0">
+  <div *ngIf="!loadingTimes && availableTimes.length === 0" class="text-center">
     Nenhum horário disponível para o médico e data selecionados.
   </div>
 
-  <div *ngIf="!loadingTimes && availableTimes.length > 0">
+  <div *ngIf="!loadingTimes && availableTimes.length > 0" class="d-flex flex-wrap justify-content-center gap-2 mt-3">
     <ion-button *ngFor="let time of availableTimes" fill="outline" color="primary" (click)="updateDetails(time)">
       {{ time }}
     </ion-button>

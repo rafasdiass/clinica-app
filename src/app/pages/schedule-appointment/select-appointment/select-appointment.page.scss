@@ -1,74 +1,64 @@
 .select-appointment-container {
     font-family: 'Roboto', sans-serif;
-    color: #212e3e;
 
     h2 {
-        font-size: 1.2rem;
-        margin-bottom: 1rem;
         color: #0c76b0;
+        font-size: 1.25rem;
         font-weight: bold;
-    }
-
-    .section-title {
-        margin-top: 2rem;
+        text-align: center;
         margin-bottom: 1rem;
-        color: #0c76b0;
     }
 
     .loading {
         text-align: center;
-        font-size: 1rem;
         color: #626668;
+        font-size: 1rem;
+        margin: 1rem 0;
     }
 
     ion-list {
         background-color: #f4f9fe;
         border-radius: 8px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        padding: 0.5rem;
 
         ion-item {
-            --background: #ffffff;
-            --color: #212e3e;
-            --border-color: #d2d6db;
-            border-bottom: 1px solid var(--border-color);
+            font-size: 1rem;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+            margin-bottom: 0.5rem;
 
             &:hover {
-                --background: #cce4f6;
-            }
-
-            &.active {
-                --background: #0c76b0;
-                --color: #ffffff;
+                background-color: #e8f4fc;
             }
 
             h3 {
-                margin: 0;
-                font-size: 1rem;
+                color: #0c76b0;
                 font-weight: bold;
             }
 
             p {
-                margin: 0;
-                font-size: 0.85rem;
                 color: #48505c;
             }
         }
     }
 
-    .date-box {
-        background-color: #ffffff;
-        border: 1px solid #d2d6db;
-        text-align: center;
-        padding: 0.5rem;
-        border-radius: 4px;
-        color: #0c76b0;
-        font-weight: bold;
-        margin-bottom: 0.5rem;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
+    ion-grid {
+        margin-top: 1rem;
 
-        &:hover {
-            background-color: #cce4f6;
+        .date-box {
+            border: 1px solid #d2d6db;
+            border-radius: 4px;
+            padding: 0.5rem;
+            font-size: 0.9rem;
+            color: #0c76b0;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+
+            &:hover {
+                background-color: #e8f4fc;
+            }
         }
     }
 }
