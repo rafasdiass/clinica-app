@@ -13,17 +13,29 @@
   <!-- Médicos Disponíveis -->
   <h2 class="text-primary text-center mt-4">Escolha o Médico</h2>
   <div *ngIf="loadingDoctors" class="loading">Carregando médicos...</div>
-  <ion-list *ngIf="!loadingDoctors">
-    <ion-item *ngFor="let doctor of doctors" button (click)="selectDoctor(doctor.name)">
-      <ion-label>
-        <h3>{{ doctor.name }}</h3>
-        <p>{{ doctor.specialty }}</p>
-      </ion-label>
-    </ion-item>
-  </ion-list>
+  <div class="search-container">
+    <div class="input-group">
+      <input type="text" class="form-control" placeholder="Buscar médico..." [(ngModel)]="searchTerm"
+        (input)="filterDoctors()" />
+      <span class="input-group-text">
+        <i class="bi bi-search"></i>
+      </span>
+    </div>
+    <ion-list *ngIf="!loadingDoctors && filteredDoctors.length > 0">
+      <ion-item *ngFor="let doctor of filteredDoctors" button (click)="selectDoctor(doctor.name)">
+        <ion-label>
+          <h3>{{ doctor.name }}</h3>
+          <p>{{ doctor.specialty }}</p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+    <div *ngIf="!loadingDoctors && filteredDoctors.length === 0" class="text-center text-danger mt-2">
+      Nenhum médico encontrado.
+    </div>
+  </div>
 
   <!-- Datas Disponíveis -->
-  <h2 class="text-primary text-center mt-4">Escolha a Data</h2>
+  <h2 class="text-primary text-center mt-4">Datas Disponíveis</h2>
   <div class="calendar-container">
     <ion-datetime [value]="selectedDate" (ionChange)="onDateChange($event)" presentation="date" class="custom-calendar">
     </ion-datetime>

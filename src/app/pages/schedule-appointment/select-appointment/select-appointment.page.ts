@@ -9,13 +9,14 @@ import {
   IonDatetime,
 } from '@ionic/angular/standalone';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-select-appointment',
   templateUrl: './select-appointment.page.html',
   styleUrls: ['./select-appointment.page.scss'],
   standalone: true,
-  imports: [IonDatetime, IonLabel, IonItem, IonList, CommonModule],
+  imports: [IonDatetime, IonLabel, IonItem, IonList, CommonModule,FormsModule],
 })
 export class SelectAppointmentPage implements OnInit {
   @Input() selectedType: string | null = null;
@@ -25,11 +26,14 @@ export class SelectAppointmentPage implements OnInit {
 
   appointmentTypes: string[] = [];
   doctors: Doctor[] = [];
+  filteredDoctors: Doctor[] = []; // Lista de médicos filtrados
   availableDates: string[] = [];
-  disabledDates: string[] = []; // Lista de datas desabilitadas no DatePicker
-  selectedDate: string | null = null; // Propriedade corrigida
-  selectedDoctor: string | null = null; // Médico selecionado
-  isDateValid = true; // Propriedade corrigida para validação de datas
+  disabledDates: string[] = [];
+  selectedDate: string | null = null;
+  selectedDoctor: string | null = null;
+  isDateValid = true;
+
+  searchTerm: string = ''; // Termo de busca
 
   loadingTypes = true;
   loadingDoctors = false;
@@ -58,8 +62,19 @@ export class SelectAppointmentPage implements OnInit {
       .pipe(catchError(() => of([])))
       .subscribe((doctors) => {
         this.doctors = doctors;
+        this.filteredDoctors = doctors; // Inicialmente todos os médicos estão disponíveis
         this.loadingDoctors = false;
       });
+  }
+
+  filterDoctors(): void {
+    // Filtrar médicos com base no termo de busca
+    const term = this.searchTerm.toLowerCase();
+    this.filteredDoctors = this.doctors.filter(
+      (doctor) =>
+        doctor.name.toLowerCase().includes(term) ||
+        doctor.specialty.toLowerCase().includes(term)
+    );
   }
 
   selectType(type: string): void {
@@ -76,12 +91,11 @@ export class SelectAppointmentPage implements OnInit {
       .pipe(catchError(() => of([])))
       .subscribe((dates) => {
         this.availableDates = dates;
-        this.updateDisabledDates(); // Atualizar datas desabilitadas
+        this.updateDisabledDates();
       });
   }
 
   updateDisabledDates(): void {
-    // Supondo que "availableDates" contenha as datas disponíveis
     const allDates = this.getMonthDates();
     this.disabledDates = allDates.filter(
       (date) => !this.availableDates.includes(date)
@@ -89,7 +103,7 @@ export class SelectAppointmentPage implements OnInit {
   }
 
   onDateChange(event: any): void {
-    const selectedDate = event.detail.value?.split('T')[0]; // Normalizar a data
+    const selectedDate = event.detail.value?.split('T')[0];
     this.isDateValid = this.availableDates.includes(selectedDate);
 
     if (this.isDateValid) {
@@ -101,7 +115,6 @@ export class SelectAppointmentPage implements OnInit {
   }
 
   getMonthDates(): string[] {
-    // Gerar todas as datas do mês atual
     const dates: string[] = [];
     const now = new Date();
     const year = now.getFullYear();
@@ -110,7 +123,7 @@ export class SelectAppointmentPage implements OnInit {
 
     for (let day = 1; day <= daysInMonth; day++) {
       const date = new Date(year, month, day);
-      dates.push(date.toISOString().split('T')[0]); // Formato "YYYY-MM-DD"
+      dates.push(date.toISOString().split('T')[0]);
     }
 
     return dates;
