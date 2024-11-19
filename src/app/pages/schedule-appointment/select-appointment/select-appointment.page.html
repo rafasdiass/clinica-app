@@ -1,9 +1,34 @@
-<div class="container text-center">
-  <h2 class="my-3">Selecione o Tipo de Atendimento</h2>
-  <div *ngIf="loading" class="spinner-border text-primary" role="status"></div>
-  <div class="d-flex flex-wrap justify-content-center gap-3" *ngIf="!loading">
-    <button *ngFor="let type of appointmentTypes" class="btn btn-outline-primary btn-lg" (click)="selectType(type)">
+<div class="select-appointment-container ion-padding">
+  <h2>Selecione o Tipo de Atendimento</h2>
+
+  <!-- Tipos de Atendimento -->
+  <div *ngIf="loadingTypes" class="loading">Carregando tipos de atendimento...</div>
+  <ion-list *ngIf="!loadingTypes">
+    <ion-item *ngFor="let type of appointmentTypes" button (click)="selectType(type)"
+      [class.active]="type === selectedType">
       {{ type }}
-    </button>
-  </div>
+    </ion-item>
+  </ion-list>
+
+  <!-- Médicos Disponíveis -->
+  <h2 class="section-title">Escolha o Médico</h2>
+  <div *ngIf="loadingDoctors" class="loading">Carregando médicos...</div>
+  <ion-list *ngIf="!loadingDoctors">
+    <ion-item *ngFor="let doctor of doctors" button (click)="selectDoctor(doctor.name)">
+      <ion-label>
+        <h3>{{ doctor.name }}</h3>
+        <p>{{ doctor.specialty }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <!-- Datas Disponíveis -->
+  <h2 class="section-title">Escolha a Data</h2>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="4" *ngFor="let date of availableDates" (click)="selectDate(date)" class="date-box">
+        {{ date }}
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </div>

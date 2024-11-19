@@ -1,0 +1,57 @@
+.schedule-appointment-container {
+    font-family: 'Roboto', sans-serif;
+    color: #212e3e;
+
+    .header {
+        text-align: center;
+        margin-bottom: 1rem;
+
+        h1 {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: #0c76b0;
+        }
+    }
+
+    .select-appointment,
+    .schedule-details {
+        background-color: #f4f9fe;
+        border-radius: 8px;
+        padding: 1rem;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .action-buttons {
+        display: flex;
+        justify-content: space-between;
+
+        .btn {
+            font-size: 0.9rem;
+            font-weight: bold;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: background-color 0.3s ease;
+
+            &.btn-danger {
+                background-color: #d9534f;
+                border: none;
+
+                &:hover {
+                    background-color: #c9302c;
+                }
+            }
+
+            &.btn-primary {
+                background-color: #0c76b0;
+                border: none;
+
+                &:hover {
+                    background-color: #0a5e8e;
+                }
+            }
+        }
+    }
+}

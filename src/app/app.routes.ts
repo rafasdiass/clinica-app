@@ -5,13 +5,7 @@ export const routes: Routes = [
     path: 'home',
     loadComponent: () => import('./home/home.page').then((m) => m.HomePage),
   },
-  {
-    path: 'appointments',
-    loadComponent: () =>
-      import('./pages/schedule-appointment/schedule-appointment.page').then(
-        (m) => m.ScheduleAppointmentPage
-      ),
-  },
+  
   {
     path: 'exam-results',
     loadComponent: () =>

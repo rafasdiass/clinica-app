@@ -1,145 +1,37 @@
-// Configuração geral da página
-.container {
-    max-width: 100%; // Garante que ocupa toda a largura da tela
-    padding: 1rem; // Espaçamento interno para evitar bordas coladas
-    margin: auto; // Centraliza o conteúdo
+.appointment-type-container {
+    text-align: center;
 
     h2 {
-        font-size: 1.8rem; // Tamanho do título
-        color: #0056b3; // Azul forte
-        font-weight: bold;
-        text-align: center;
-        margin-bottom: 1.5rem;
+        font-size: 1.2rem;
+        color: #48505c;
+        margin-bottom: 1rem;
     }
 
-    .form-label {
-        font-size: 1rem;
-        color: #495057; // Cinza neutro para labels
-        font-weight: 500;
-    }
-
-    .form-control,
-    .form-select {
-        font-size: 1rem;
-        padding: 0.75rem; // Espaçamento interno para usabilidade
-        border-radius: 0.5rem; // Bordas arredondadas
-        border: 1px solid #ced4da; // Cor da borda padrão
-    }
-
-    .form-control:focus,
-    .form-select:focus {
-        border-color: #0056b3; // Azul ao focar
-        box-shadow: 0 0 5px rgba(0, 86, 179, 0.5); // Sombra sutil para foco
-    }
-
-    // Alertas de erro
-    .alert {
-        font-size: 0.9rem;
-        padding: 0.75rem 1rem;
-        border-radius: 0.5rem;
-        text-align: center;
-    }
-
-    .alert-danger {
-        background-color: #f8d7da; // Vermelho claro para erro
-        color: #721c24; // Texto mais escuro
-        border-color: #f5c6cb; // Borda do alerta
-    }
-
-    // Spinners (indicadores de carregamento)
-    .spinner-border {
-        width: 2.5rem; // Ajustado para mobile
-        height: 2.5rem;
-        color: #0056b3; // Azul para carregamento
-    }
-
-    .text-muted {
-        font-size: 0.9rem;
-        color: #6c757d; // Cinza suave para mensagens auxiliares
-        text-align: center;
-    }
-
-    // Botões
-    button {
-        font-size: 1rem; // Texto legível
-        font-weight: 600; // Negrito para destaque
-        padding: 0.5rem 1.25rem; // Botões confortáveis de clicar
-        border-radius: 0.5rem; // Bordas arredondadas
-        transition: all 0.3s ease-in-out; // Transição suave ao hover
-
-        &.btn-outline-success {
-            border-color: #28a745; // Verde do Bootstrap
-            color: #28a745; // Texto verde
-        }
-
-        &.btn-outline-success:hover {
-            background-color: #28a745; // Fundo verde ao hover
-            color: #fff; // Texto branco
-        }
-    }
-
-    // Layout de horários
-    .d-flex {
+    .appointment-type-buttons {
         display: flex;
-        flex-wrap: wrap;
-        gap: 0.5rem; // Espaçamento entre os botões de horários
+        gap: 1rem;
+        justify-content: center;
 
-        button {
-            flex: 1 1 calc(33.333% - 0.5rem); // Ajusta o tamanho do botão para ocupar 1/3 da linha
-            text-align: center;
-            padding: 0.5rem;
-        }
+        ion-button {
+            border-radius: 4px;
 
-        @media (max-width: 768px) {
-            button {
-                flex: 1 1 calc(50% - 0.5rem); // Ajusta para 50% da linha em telas menores
-            }
-        }
-
-        @media (max-width: 480px) {
-            button {
-                flex: 1 1 100%; // Ocupa a linha inteira em telas muito pequenas
+            &.active {
+                background-color: #47a5de;
+                color: white;
             }
         }
     }
-}
 
-// Layout responsivo
-@media (max-width: 768px) {
-    h2 {
-        font-size: 1.5rem; // Ajusta o título para telas menores
-    }
+    .booking-method {
+        margin-top: 1rem;
 
-    .form-control,
-    .form-select {
-        font-size: 0.9rem;
-        padding: 0.5rem; // Reduz o espaçamento interno
-    }
+        label {
+            font-weight: bold;
+            color: #212e3e;
+        }
 
-    button {
-        font-size: 0.9rem; // Texto menor para botões
-        padding: 0.4rem 1rem;
-    }
-
-    .spinner-border {
-        width: 2rem; // Spinner menor
-        height: 2rem;
-    }
-}
-
-@media (max-width: 480px) {
-    h2 {
-        font-size: 1.3rem; // Título ainda menor para telas muito pequenas
-    }
-
-    .form-control,
-    .form-select {
-        font-size: 0.8rem;
-        padding: 0.4rem; // Reduz ainda mais o espaçamento
-    }
-
-    button {
-        font-size: 0.8rem; // Botões compactos
-        padding: 0.3rem 0.8rem;
+        ion-select {
+            width: 100%;
+        }
     }
 }

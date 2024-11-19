@@ -1,13 +1,29 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>schedule-appointment</ion-title>
-  </ion-toolbar>
-</ion-header>
+<div class="schedule-appointment-container container py-3">
+  <header class="header text-center mb-4">
+    <h1 class="fs-4 text-primary">Marcação de Consulta</h1>
+  </header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">schedule-appointment</ion-title>
-    </ion-toolbar>
-  </ion-header>
-</ion-content>
+  <!-- Seção de Seleção -->
+  <div class="select-appointment mb-4">
+    <app-select-appointment [selectedType]="appointmentType" (typeSelected)="onTypeSelected($event)"
+      (doctorSelected)="selectedDoctor = $event" (dateSelected)="selectedDate = $event">
+    </app-select-appointment>
+  </div>
+
+  <!-- Detalhes -->
+  <div class="schedule-details mb-4">
+    <app-schedule-details [appointmentType]="appointmentType" [selectedDoctor]="selectedDoctor"
+      [selectedDate]="selectedDate" (detailsUpdated)="onDetailsUpdated($event)">
+    </app-schedule-details>
+  </div>
+
+  <!-- Botões de Ação -->
+  <div class="action-buttons d-flex justify-content-between">
+    <button class="btn btn-danger d-flex align-items-center">
+      <i class="bi bi-x-circle me-2"></i> Cancelar
+    </button>
+    <button class="btn btn-primary d-flex align-items-center" (click)="confirmAppointment()">
+      <i class="bi bi-check-circle me-2"></i> Confirmar
+    </button>
+  </div>
+</div>
