@@ -1,7 +1,8 @@
 .home-page {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  min-height: 100vh;
+  /* Garante altura mínima de 100% da viewport */
   background-color: #f4f4f9;
 
   /* Header fixado no topo */
@@ -16,27 +17,21 @@
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   }
 
-  /* Espaço reservado para o conteúdo */
-  .content {
-    flex-grow: 1;
-    margin-top: 60px;
-    /* Altura do header */
-    padding: 15px;
-    overflow-y: auto;
-  }
-
   /* Botões de acesso rápido */
   .quick-access-buttons {
+    position: fixed;
+    top: 60px;
+    /* Posição abaixo do header */
+    left: 0;
+    width: 100%;
+    z-index: 99;
+    background-color: #ffffff;
+    padding: 10px 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 10px 15px;
-    background-color: #ffffff;
-    position: sticky;
-    bottom: 20px;
-    /* Subiu mais a posição */
-    z-index: 50;
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    gap: 10px;
 
     button {
       flex: 1;
@@ -95,14 +90,34 @@
     }
   }
 
+  /* Espaço reservado para o conteúdo */
+  .content {
+    flex: 1;
+    /* Garante que o conteúdo ocupe o espaço restante */
+    margin-top: 130px;
+    /* Altura do header + altura dos botões */
+    padding: 15px;
+    overflow-y: auto;
+    padding-bottom: 60px;
+    /* Reserva espaço para o footer */
+    box-sizing: border-box;
+  }
+
+  /* Footer fixado */
+  .footer {
+    background-color: #f4f4f9;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 0.9rem;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+  }
+
   /* Ajustes para dispositivos móveis */
   @media (max-width: 768px) {
     .quick-access-buttons {
       justify-content: center;
       gap: 0;
       /* Remove espaços entre os botões */
-      bottom: 40px;
-      /* Subiu ainda mais a posição na versão mobile */
 
       button {
         flex: none;
@@ -122,6 +137,13 @@
           display: none;
         }
       }
+    }
+
+    .content {
+      margin-top: 120px;
+      /* Ajustado para compensar header e botões em telas menores */
+      padding-bottom: 80px;
+      /* Mais espaço reservado para o footer em mobile */
     }
   }
 }
