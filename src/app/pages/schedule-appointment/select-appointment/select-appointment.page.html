@@ -1,0 +1,9 @@
+<div class="container text-center">
+  <h2 class="my-3">Selecione o Tipo de Atendimento</h2>
+  <div *ngIf="loading" class="spinner-border text-primary" role="status"></div>
+  <div class="d-flex flex-wrap justify-content-center gap-3" *ngIf="!loading">
+    <button *ngFor="let type of appointmentTypes" class="btn btn-outline-primary btn-lg" (click)="selectType(type)">
+      {{ type }}
+    </button>
+  </div>
+</div>

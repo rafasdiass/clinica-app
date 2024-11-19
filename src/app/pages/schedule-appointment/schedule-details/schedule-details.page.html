@@ -1,0 +1,61 @@
+<div class="container">
+  <h2 class="text-center my-3">Detalhes do Agendamento</h2>
+
+  <!-- Mensagem de erro -->
+  <div class="alert alert-danger" *ngIf="errorMessage">{{ errorMessage }}</div>
+
+  <!-- Filtro por Data -->
+  <div class="mb-4">
+    <label for="date" class="form-label">Selecione a Data:</label>
+    <input type="date" id="date" class="form-control" [(ngModel)]="selectedDate" (change)="loadDoctorsByDate()" />
+  </div>
+
+  <!-- Médicos disponíveis -->
+  <div *ngIf="loadingDoctors" class="text-center">
+    <div class="spinner-border text-primary" role="status"></div>
+    <p class="mt-2">Carregando médicos disponíveis...</p>
+  </div>
+  <div *ngIf="!loadingDoctors && doctors.length > 0" class="mb-4">
+    <label for="doctor" class="form-label">Selecione o Médico:</label>
+    <select id="doctor" class="form-select" [(ngModel)]="selectedDoctor" (change)="loadAvailableTimes()">
+      <option *ngFor="let doctor of doctors" [value]="doctor.name">
+        {{ doctor.name }} - {{ doctor.specialty }}
+      </option>
+    </select>
+  </div>
+
+  <!-- Filtro por Médico -->
+  <div class="mb-4">
+    <label for="doctorFilter" class="form-label">Selecione o Médico:</label>
+    <select id="doctorFilter" class="form-select" [(ngModel)]="selectedDoctor" (change)="loadDatesByDoctor()">
+      <option *ngFor="let doctor of doctors" [value]="doctor.name">
+        {{ doctor.name }} - {{ doctor.specialty }}
+      </option>
+    </select>
+  </div>
+
+  <!-- Datas disponíveis -->
+  <div *ngIf="loadingDates" class="text-center">
+    <div class="spinner-border text-primary" role="status"></div>
+    <p class="mt-2">Carregando datas disponíveis...</p>
+  </div>
+  <div *ngIf="!loadingDates && availableDates.length > 0" class="mb-4">
+    <label for="dateFilter" class="form-label">Selecione a Data:</label>
+    <select id="dateFilter" class="form-select" [(ngModel)]="selectedDate" (change)="loadAvailableTimes()">
+      <option *ngFor="let date of availableDates" [value]="date">
+        {{ date }}
+      </option>
+    </select>
+  </div>
+
+  <!-- Horários disponíveis -->
+  <div *ngIf="loadingTimes" class="text-center">
+    <div class="spinner-border text-primary" role="status"></div>
+    <p class="mt-2">Carregando horários disponíveis...</p>
+  </div>
+  <div *ngIf="!loadingTimes && availableTimes.length > 0" class="d-flex flex-wrap gap-2">
+    <button *ngFor="let time of availableTimes" class="btn btn-outline-success" (click)="confirmAppointment(time)">
+      {{ time }}
+    </button>
+  </div>
+</div>

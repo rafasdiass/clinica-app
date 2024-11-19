@@ -1,8 +1,10 @@
 export interface Appointment {
+  id?: string; // ID opcional
+  type: string; // Tipo de atendimento
   doctorName: string;
   specialty: string;
-  date: string; // Pode ser ajustado para `Date` se necessário
+  date: string; // Formato ISO
+  availableTimes: string[]; // Lista de horários disponíveis
   location: string;
-  notes: string;
-  photoUrl: string;
+  notes?: string; // Notas opcionais
 }

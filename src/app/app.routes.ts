@@ -8,8 +8,8 @@ export const routes: Routes = [
   {
     path: 'appointments',
     loadComponent: () =>
-      import('./pages/appointments/appointments.page').then(
-        (m) => m.AppointmentsPage
+      import('./pages/schedule-appointment/schedule-appointment.page').then(
+        (m) => m.ScheduleAppointmentPage
       ),
   },
   {
@@ -47,5 +47,17 @@ export const routes: Routes = [
     path: '',
     redirectTo: 'home',
     pathMatch: 'full',
+  },
+  {
+    path: 'schedule-details',
+    loadComponent: () => import('./pages/schedule-appointment/schedule-details/schedule-details.page').then( m => m.ScheduleDetailsPage)
+  },
+  {
+    path: 'schedule-appointment',
+    loadComponent: () => import('./pages/schedule-appointment/schedule-appointment.page').then( m => m.ScheduleAppointmentPage)
+  },
+  {
+    path: 'select-appointment',
+    loadComponent: () => import('./pages/schedule-appointment/select-appointment/select-appointment.page').then( m => m.SelectAppointmentPage)
   },
 ];
