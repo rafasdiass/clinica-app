@@ -5,12 +5,19 @@ export const routes: Routes = [
     path: 'home',
     loadComponent: () => import('./home/home.page').then((m) => m.HomePage),
   },
-  
+
   {
     path: 'exam-results',
     loadComponent: () =>
       import('./pages/exam-results/exam-results.page').then(
         (m) => m.ExamResultsPage
+      ),
+  },
+  {
+    path: 'agendamentos',
+    loadComponent: () =>
+      import('./pages/schedule-appointment/schedule-appointment.page').then(
+        (m) => m.ScheduleAppointmentPage
       ),
   },
   {
@@ -35,8 +42,7 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./auth/register/register.page').then((m) => m.RegisterPage),
   },
-  
-   
+
   {
     path: '',
     redirectTo: 'home',
@@ -44,14 +50,23 @@ export const routes: Routes = [
   },
   {
     path: 'schedule-details',
-    loadComponent: () => import('./pages/schedule-appointment/schedule-details/schedule-details.page').then( m => m.ScheduleDetailsPage)
+    loadComponent: () =>
+      import(
+        './pages/schedule-appointment/schedule-details/schedule-details.page'
+      ).then((m) => m.ScheduleDetailsPage),
   },
   {
     path: 'schedule-appointment',
-    loadComponent: () => import('./pages/schedule-appointment/schedule-appointment.page').then( m => m.ScheduleAppointmentPage)
+    loadComponent: () =>
+      import('./pages/schedule-appointment/schedule-appointment.page').then(
+        (m) => m.ScheduleAppointmentPage
+      ),
   },
   {
     path: 'select-appointment',
-    loadComponent: () => import('./pages/schedule-appointment/select-appointment/select-appointment.page').then( m => m.SelectAppointmentPage)
+    loadComponent: () =>
+      import(
+        './pages/schedule-appointment/select-appointment/select-appointment.page'
+      ).then((m) => m.SelectAppointmentPage),
   },
 ];
