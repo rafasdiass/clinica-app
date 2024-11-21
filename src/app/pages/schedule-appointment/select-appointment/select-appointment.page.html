@@ -1,46 +1,20 @@
-<div class="select-appointment-container ion-padding">
-  <h2 class="text-primary text-center">Selecione o Tipo de Atendimento</h2>
-
-  <!-- Tipos de Atendimento -->
-  <div *ngIf="loadingTypes" class="loading">Carregando tipos de atendimento...</div>
-  <ion-list *ngIf="!loadingTypes">
-    <ion-item *ngFor="let type of appointmentTypes" button (click)="selectType(type)"
-      [class.active]="type === selectedType">
-      {{ type }}
-    </ion-item>
-  </ion-list>
-
-  <!-- Médicos Disponíveis -->
-  <h2 class="text-primary text-center mt-4">Escolha o Médico</h2>
-  <div *ngIf="loadingDoctors" class="loading">Carregando médicos...</div>
-  <div class="search-container">
-    <div class="input-group">
-      <input type="text" class="form-control" placeholder="Buscar médico..." [(ngModel)]="searchTerm"
-        (input)="filterDoctors()" />
-      <span class="input-group-text">
-        <i class="bi bi-search"></i>
-      </span>
-    </div>
-    <ion-list *ngIf="!loadingDoctors && filteredDoctors.length > 0">
-      <ion-item *ngFor="let doctor of filteredDoctors" button (click)="selectDoctor(doctor.name)">
-        <ion-label>
-          <h3>{{ doctor.name }}</h3>
-          <p>{{ doctor.specialty }}</p>
-        </ion-label>
-      </ion-item>
-    </ion-list>
-    <div *ngIf="!loadingDoctors && filteredDoctors.length === 0" class="text-center text-danger mt-2">
-      Nenhum médico encontrado.
-    </div>
+<div class="d-flex flex-column">
+  <!-- Campo de Busca -->
+  <div class="mb-3">
+    <input type="text" class="form-control" placeholder="Search doctor..." />
   </div>
 
-  <!-- Datas Disponíveis -->
-  <h2 class="text-primary text-center mt-4">Datas Disponíveis</h2>
-  <div class="calendar-container">
-    <ion-datetime [value]="selectedDate" (ionChange)="onDateChange($event)" presentation="date" class="custom-calendar">
-    </ion-datetime>
-    <div *ngIf="!isDateValid" class="error-message">
-      Data indisponível. Escolha outra data.
-    </div>
+  <!-- Lista de Médicos -->
+  <div class="btn-group btn-group-toggle mb-3 d-flex" data-toggle="buttons">
+    <label class="btn btn-outline-primary">
+      <input type="radio" name="options" id="option1" (click)="onDoctorSelect('Dr. Angela Smith')"> Dr. Angela Smith
+    </label>
+    <label class="btn btn-outline-primary">
+      <input type="radio" name="options" id="option2" (click)="onDoctorSelect('Dr. Michael Johnson')"> Dr. Michael
+      Johnson
+    </label>
+    <label class="btn btn-outline-primary">
+      <input type="radio" name="options" id="option3" (click)="onDoctorSelect('Dr. Emily Davis')"> Dr. Emily Davis
+    </label>
   </div>
 </div>

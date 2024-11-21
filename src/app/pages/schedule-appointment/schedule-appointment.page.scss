@@ -1,51 +1,57 @@
-.schedule-appointment-container {
-    font-family: 'Roboto', sans-serif;
-    padding: 1rem;
+ion-header {
+    ion-toolbar {
+        --background: var(--ion-color-primary);
+        --color: #ffffff;
 
-    .header {
-        text-align: center;
-        margin-bottom: 2rem;
-
-        h1 {
+        ion-title {
+            text-align: center;
             font-size: 1.5rem;
-            color: #0c76b0;
             font-weight: bold;
         }
     }
+}
 
-    .action-buttons {
-        display: flex;
-        justify-content: space-between;
+ion-content {
+    padding: 16px;
 
-        button {
-            font-size: 1rem;
-            font-weight: bold;
-            padding: 0.5rem 1.5rem;
+    h2 {
+        font-size: 1.2rem;
+        font-weight: bold;
+        color: var(--ion-color-primary);
+        margin-bottom: 16px;
+        text-align: center;
+    }
+
+    app-select-appointment,
+    app-date-picker,
+    app-schedule-details {
+        display: block;
+        margin-bottom: 24px;
+
+        ion-item {
+            --background: var(--ion-color-light);
+            --color: var(--ion-color-dark);
+            margin: 8px 0;
             border-radius: 8px;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: all 0.3s ease;
+        }
 
-            &.btn-danger {
-                background-color: #d9534f;
-                color: white;
-                border: none;
+        .loading {
+            text-align: center;
+            font-size: 1rem;
+            color: var(--ion-color-medium);
+            margin-top: 8px;
+        }
+    }
 
-                &:hover {
-                    background-color: #c9302c;
-                }
-            }
+    ion-button {
+        --background: var(--ion-color-success);
+        --background-activated: var(--ion-color-success-shade);
+        --color: #ffffff;
+        font-weight: bold;
+        border-radius: 8px;
 
-            &.btn-primary {
-                background-color: #0c76b0;
-                color: white;
-                border: none;
-
-                &:hover {
-                    background-color: #084d79;
-                }
-            }
+        &:hover {
+            --background: var(--ion-color-success-tint);
         }
     }
 }

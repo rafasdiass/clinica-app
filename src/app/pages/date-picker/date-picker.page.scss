@@ -1,0 +1,74 @@
+.date-picker-container {
+    padding: 16px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+
+    .calendar-navigation {
+        button {
+            font-size: 1rem;
+            font-weight: bold;
+            color: #007bff;
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+
+            &:hover {
+                background-color: #e9ecef;
+                color: #0056b3;
+            }
+        }
+    }
+
+    h3 {
+        font-size: 1.5rem;
+        font-weight: bold;
+        text-align: center;
+        color: #343a40;
+        margin-bottom: 20px;
+    }
+
+    .datetime-wrapper {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+
+        ion-datetime {
+            --background: #ffffff;
+            --color: #495057;
+            --placeholder-color: #6c757d;
+            --highlight-color: #007bff;
+            border: 1px solid #ced4da;
+            border-radius: 8px;
+            padding: 10px;
+        }
+    }
+
+    ion-list {
+        ion-item {
+            font-size: 1rem;
+            color: #495057;
+            background-color: #ffffff;
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            padding: 12px;
+            transition: background-color 0.3s ease;
+
+            &:hover {
+                background-color: #e2f0ff;
+            }
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    .no-dates {
+        font-size: 1rem;
+        color: #6c757d;
+        margin-top: 20px;
+        font-style: italic;
+    }
+}

@@ -69,4 +69,8 @@ export const routes: Routes = [
         './pages/schedule-appointment/select-appointment/select-appointment.page'
       ).then((m) => m.SelectAppointmentPage),
   },
+  {
+    path: 'date-picker',
+    loadComponent: () => import('./pages/date-picker/date-picker.page').then( m => m.DatePickerPage)
+  },
 ];

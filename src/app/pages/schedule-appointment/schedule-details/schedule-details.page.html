@@ -1,15 +1,21 @@
-<div class="schedule-details-container ion-padding">
-  <h2 class="text-primary text-center">Horários Disponíveis</h2>
+<div class="card">
+  <div class="card-body">
+    <!-- Mensagem de carregamento -->
+    <div *ngIf="loadingTimes" class="text-center">Carregando horários...</div>
 
-  <div *ngIf="loadingTimes" class="loading text-center">Carregando horários...</div>
+    <!-- Exibição de horários -->
+    <div *ngIf="!loadingTimes && availableTimes.length > 0">
+      <h5 class="mb-3 text-center">{{ doctorName }} - {{ date }}</h5>
+      <div class="d-flex flex-wrap gap-2 justify-content-center">
+        <button *ngFor="let time of availableTimes" class="btn btn-outline-primary" (click)="updateDetails(time)">
+          {{ time }}
+        </button>
+      </div>
+    </div>
 
-  <div *ngIf="!loadingTimes && availableTimes.length === 0" class="text-center">
-    Nenhum horário disponível para o médico e data selecionados.
-  </div>
-
-  <div *ngIf="!loadingTimes && availableTimes.length > 0" class="d-flex flex-wrap justify-content-center gap-2 mt-3">
-    <ion-button *ngFor="let time of availableTimes" fill="outline" color="primary" (click)="updateDetails(time)">
-      {{ time }}
-    </ion-button>
+    <!-- Mensagem caso não existam horários -->
+    <div *ngIf="!loadingTimes && availableTimes.length === 0" class="text-center">
+      Nenhum horário disponível.
+    </div>
   </div>
 </div>

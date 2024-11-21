@@ -1,50 +1,44 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { AppointmentService } from 'src/app/shared/services/appointment.service';
 import { catchError, of } from 'rxjs';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-schedule-details',
   templateUrl: './schedule-details.page.html',
   styleUrls: ['./schedule-details.page.scss'],
   standalone: true,
-  imports: [CommonModule, FormsModule, IonicModule],
+  imports: [IonicModule, CommonModule],
 })
 export class ScheduleDetailsPage implements OnInit {
-  @Input() appointmentType: string | null = null;
-  @Input() selectedDoctor: string | null = null; // Propriedade adicionada
-  @Input() selectedDate: string | null = null; // Propriedade adicionada
+  @Input() doctorName: string | null = null; // Nome do médico
+  @Input() date: string | null = null; // Data selecionada
   @Output() detailsUpdated = new EventEmitter<{
     doctor: string;
     date: string;
+    time: string;
   }>();
 
-  availableTimes: string[] = [];
-  loadingTimes = false;
+  availableTimes: string[] = []; // Horários disponíveis
+  loadingTimes = false; // Estado de carregamento
 
   constructor(private appointmentService: AppointmentService) {}
 
   ngOnInit(): void {
-    if (this.selectedDoctor && this.selectedDate) {
-      this.loadAvailableTimes(this.selectedDoctor, this.selectedDate);
-    }
+    this.loadAvailableTimes();
   }
 
   /**
-   * Carrega os horários disponíveis para o médico e a data selecionados.
+   * Carrega horários disponíveis para o médico e a data selecionados.
    */
-  loadAvailableTimes(doctor: string, date: string): void {
+  private loadAvailableTimes(): void {
+    if (!this.doctorName || !this.date) return;
+
     this.loadingTimes = true;
     this.appointmentService
-      .getAvailableTimes(date, doctor)
-      .pipe(
-        catchError((error) => {
-          console.error('Erro ao carregar horários disponíveis:', error);
-          return of([]);
-        })
-      )
+      .getAvailableTimes(this.date, this.doctorName)
+      .pipe(catchError(() => of([])))
       .subscribe((times) => {
         this.availableTimes = times;
         this.loadingTimes = false;
@@ -52,13 +46,15 @@ export class ScheduleDetailsPage implements OnInit {
   }
 
   /**
-   * Atualiza os detalhes selecionados.
+   * Atualiza os detalhes do agendamento com o horário selecionado.
+   * @param time Horário selecionado.
    */
   updateDetails(time: string): void {
-    if (this.selectedDoctor && this.selectedDate) {
+    if (this.doctorName && this.date) {
       this.detailsUpdated.emit({
-        doctor: this.selectedDoctor,
-        date: time,
+        doctor: this.doctorName,
+        date: this.date,
+        time,
       });
     }
   }
