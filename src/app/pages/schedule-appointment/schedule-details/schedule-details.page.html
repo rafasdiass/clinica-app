@@ -1,21 +1,20 @@
-<div class="card">
-  <div class="card-body">
-    <!-- Mensagem de carregamento -->
-    <div *ngIf="loadingTimes" class="text-center">Carregando horários...</div>
+<div class="schedule-details-container">
+  <h4 class="text-primary">Selecione um Horário Disponível</h4>
 
-    <!-- Exibição de horários -->
-    <div *ngIf="!loadingTimes && availableTimes.length > 0">
-      <h5 class="mb-3 text-center">{{ doctorName }} - {{ date }}</h5>
-      <div class="d-flex flex-wrap gap-2 justify-content-center">
-        <button *ngFor="let time of availableTimes" class="btn btn-outline-primary" (click)="updateDetails(time)">
-          {{ time }}
-        </button>
-      </div>
-    </div>
+  <!-- Estado de carregamento -->
+  <div *ngIf="loadingTimes" class="loading">
+    Carregando horários disponíveis...
+  </div>
 
-    <!-- Mensagem caso não existam horários -->
-    <div *ngIf="!loadingTimes && availableTimes.length === 0" class="text-center">
-      Nenhum horário disponível.
-    </div>
+  <!-- Exibição de horários -->
+  <div *ngIf="!loadingTimes && availableTimes.length > 0" class="times-container">
+    <button *ngFor="let time of availableTimes" class="btn btn-outline-primary me-2 mb-2" (click)="updateDetails(time)">
+      {{ time }}
+    </button>
+  </div>
+
+  <!-- Mensagem se não houver horários -->
+  <div *ngIf="!loadingTimes && availableTimes.length === 0" class="text-danger">
+    Nenhum horário disponível para o médico e data selecionados.
   </div>
 </div>

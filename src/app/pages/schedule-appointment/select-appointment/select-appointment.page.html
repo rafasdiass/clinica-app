@@ -1,20 +1,15 @@
-<div class="d-flex flex-column">
+<div class="select-appointment-container">
   <!-- Campo de Busca -->
   <div class="mb-3">
-    <input type="text" class="form-control" placeholder="Search doctor..." />
+    <input type="text" class="form-control" [(ngModel)]="searchQuery" (input)="onSearch()"
+      placeholder="Buscar médico..." />
   </div>
 
   <!-- Lista de Médicos -->
-  <div class="btn-group btn-group-toggle mb-3 d-flex" data-toggle="buttons">
-    <label class="btn btn-outline-primary">
-      <input type="radio" name="options" id="option1" (click)="onDoctorSelect('Dr. Angela Smith')"> Dr. Angela Smith
-    </label>
-    <label class="btn btn-outline-primary">
-      <input type="radio" name="options" id="option2" (click)="onDoctorSelect('Dr. Michael Johnson')"> Dr. Michael
-      Johnson
-    </label>
-    <label class="btn btn-outline-primary">
-      <input type="radio" name="options" id="option3" (click)="onDoctorSelect('Dr. Emily Davis')"> Dr. Emily Davis
-    </label>
-  </div>
+  <ul class="list-group">
+    <li *ngFor="let doctor of filteredDoctors" class="list-group-item list-group-item-action"
+      (click)="onDoctorSelect(doctor.name)">
+      {{ doctor.name }} - {{ doctor.specialty }}
+    </li>
+  </ul>
 </div>

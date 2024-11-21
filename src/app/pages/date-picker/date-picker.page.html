@@ -1,26 +1,6 @@
 <div class="date-picker-container">
-  <!-- Navegação do Calendário -->
-  
-
-  <!-- Título -->
-  <h3 class="text-center">Escolha uma Data</h3>
-
-  <!-- Seleção de Data -->
-  <div class="datetime-wrapper mb-4">
-    <ion-datetime [min]="availableDates[0]" [max]="availableDates[availableDates.length - 1]"
-      (ionChange)="onDateChange($event)" presentation="date">
-    </ion-datetime>
-  </div>
-
-  <!-- Lista de Datas -->
-  <ion-list *ngIf="availableDates.length > 0">
-    <ion-item *ngFor="let date of availableDates">
-      {{ date }}
-    </ion-item>
-  </ion-list>
-
-  <!-- Mensagem caso não existam datas -->
-  <div *ngIf="availableDates.length === 0" class="no-dates text-center">
-    Nenhuma data disponível.
-  </div>
+  <h5 class="text-center">Escolha uma Data</h5>
+  <ion-datetime [min]="availableDates[0]" [max]="availableDates[availableDates.length - 1]"
+    (ionChange)="onDateChange($event)" presentation="date">
+  </ion-datetime>
 </div>

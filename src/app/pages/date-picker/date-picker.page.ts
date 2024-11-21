@@ -1,13 +1,13 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { IonicModule, DatetimeCustomEvent } from '@ionic/angular'; // Apenas `IonicModule`
+import { IonicModule, DatetimeCustomEvent } from '@ionic/angular';
 
 @Component({
   selector: 'app-date-picker',
   templateUrl: './date-picker.page.html',
   styleUrls: ['./date-picker.page.scss'],
   standalone: true,
-  imports: [CommonModule, IonicModule], // Remove `IonDatetime` standalone
+  imports: [CommonModule, IonicModule],
 })
 export class DatePickerPage {
   @Input() availableDates: string[] = []; // Lista de datas disponíveis

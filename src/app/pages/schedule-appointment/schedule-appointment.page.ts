@@ -26,37 +26,21 @@ export class ScheduleAppointmentPage {
   selectedDate: string | null = null;
   availableDates: string[] = [];
 
-  /**
-   * Atualiza o tipo de atendimento selecionado.
-   * @param type Tipo de atendimento.
-   */
   onTypeSelected(type: string): void {
     this.appointmentType = type;
   }
 
-  /**
-   * Atualiza o médico selecionado.
-   * @param doctor Nome do médico selecionado.
-   */
   onDoctorSelected(doctor: string): void {
     this.selectedDoctor = doctor;
 
-    // Simula o carregamento das datas disponíveis
+    // Simula datas do backend (substituir futuramente)
     this.availableDates = ['2023-11-22', '2023-11-23', '2023-11-24'];
   }
 
-  /**
-   * Atualiza a data selecionada.
-   * @param date Data selecionada.
-   */
   onDateSelected(date: string): void {
     this.selectedDate = date;
   }
 
-  /**
-   * Atualiza os detalhes do agendamento.
-   * @param details Detalhes do agendamento.
-   */
   onDetailsUpdated(details: {
     doctor: string;
     date: string;
@@ -66,9 +50,6 @@ export class ScheduleAppointmentPage {
     this.selectedDate = details.date;
   }
 
-  /**
-   * Confirma o agendamento.
-   */
   confirmAppointment(): void {
     if (this.selectedDoctor && this.selectedDate && this.appointmentType) {
       console.log('Agendamento confirmado:', {
@@ -77,7 +58,7 @@ export class ScheduleAppointmentPage {
         type: this.appointmentType,
       });
     } else {
-      console.error('Preencha todos os campos necessários antes de confirmar.');
+      console.error('Preencha todos os campos antes de confirmar.');
     }
   }
 }

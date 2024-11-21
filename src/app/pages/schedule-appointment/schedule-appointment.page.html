@@ -1,34 +1,24 @@
 <div class="container my-4">
-  <!-- Título -->
-  <div class="text-center mb-4">
-    <h1 class="text-primary">Marcação de Consulta</h1>
-  </div>
+  <h1 class="text-primary text-center">Marcação de Consulta</h1>
 
-  <!-- Tipo de Agendamento -->
   <div class="card p-3 mb-4">
-    <h4>escolha o tipo de agendamento:</h4>
-    <app-select-appointment (typeSelected)="onTypeSelected($event)" (doctorSelected)="onDoctorSelected($event)">
-    </app-select-appointment>
+    <h4>Selecione o tipo de agendamento:</h4>
+    <app-select-appointment (doctorSelected)="onDoctorSelected($event)"></app-select-appointment>
   </div>
 
-  <!-- Seleção de Data -->
   <div class="card p-3 mb-4">
     <h4>Selecione uma Data:</h4>
-    <app-date-picker [availableDates]="availableDates" (dateSelected)="onDateSelected($event)">
-    </app-date-picker>
+    <app-date-picker [availableDates]="availableDates" (dateSelected)="onDateSelected($event)"></app-date-picker>
   </div>
 
-  <!-- Detalhes do Agendamento -->
   <div class="card p-3 mb-4">
-    <h4>Selecione um medico e horario disponivel:</h4>
+    <h4>Selecione o horário:</h4>
     <app-schedule-details [doctorName]="selectedDoctor" [date]="selectedDate"
-      (detailsUpdated)="onDetailsUpdated($event)">
-    </app-schedule-details>
+      (detailsUpdated)="onDetailsUpdated($event)"></app-schedule-details>
   </div>
 
-  <!-- Botões de Ação -->
   <div class="d-flex justify-content-between">
-    <button class="btn btn-danger px-4">Cancelar</button>
-    <button class="btn btn-success px-4" (click)="confirmAppointment()">Confirmar</button>
+    <button class="btn btn-danger">Cancelar</button>
+    <button class="btn btn-success" (click)="confirmAppointment()">Confirmar</button>
   </div>
 </div>
