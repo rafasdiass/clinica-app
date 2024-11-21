@@ -30,7 +30,7 @@ export const routes: Routes = [
   {
     path: 'footer',
     loadComponent: () =>
-      import('./footer/footer.page').then((m) => m.FooterPage),
+      import('./pages/footer/footer.page').then((m) => m.FooterPage),
   },
   {
     path: 'login',
@@ -72,5 +72,9 @@ export const routes: Routes = [
   {
     path: 'date-picker',
     loadComponent: () => import('./pages/date-picker/date-picker.page').then( m => m.DatePickerPage)
+  },
+  {
+    path: 'patient-profile',
+    loadComponent: () => import('./pages/patient-profile/patient-profile.page').then( m => m.PatientProfilePage)
   },
 ];
